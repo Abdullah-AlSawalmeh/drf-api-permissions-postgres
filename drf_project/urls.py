@@ -20,3 +20,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 urlpatterns+=[path('api/v1/projects/', include('drf.urls'))]
+urlpatterns+=[path("accounts/", include("rest_framework.urls"))]
