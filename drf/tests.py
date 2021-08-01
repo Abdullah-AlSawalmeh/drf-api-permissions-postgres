@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
-from .models import Post
+from .models import Projects
 
 # Create your tests here.
 class BlogTests(TestCase):
@@ -10,15 +10,15 @@ class BlogTests(TestCase):
         test_user = get_user_model().objects.create_user(username='testuser', password='password')
         test_user.save()
 
-        test_post = Post.objects.create(
+        test_Projects = Projects.objects.create(
             author = test_user,
             title = 'Walking at night in Down Town',
             body = 'It feel good when you walk at night, espcially with a cup of coffee'
         )
-        test_post.save()
+        test_Projects.save()
 
     def test_blog_content(self):
-        post = Post.objects.get(id=1)
+        post = Projects.objects.get(id=1)
         actual_author = str(post.author)
         actual_title = str(post.title)
         actual_body = str(post.body)
